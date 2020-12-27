@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head style="background-color:black;">
+
+    <script>
+            // Statistics
+            var playerWins = 0;
+            var computerWins = 0;
+            var draws = 0;
+
+        function playGame(choice){
+
+            // Choices and calculations
+            var rand = Math.floor(Math.random() * 3);
+            var choices = ["Rock", "Paper", "Scissors"];
+            var computerChoice = choices[rand];
+
+
+            // Output
+            var outcome = "";
+            var details = "You picked " + choices[choice] + ". Enemy picked " + computerChoice + "!";
+        
+
+            if(choice == 0){
+                if(rand == 1) outcome = "You Lost!";
+                else if(rand == 2) outcome = "You Win!";
+                else outcome = "Draw!";
+
+            }
+            else if(choice == 1){
+                if(rand == 2) outcome = "You Lost!";
+                else if(rand == 0) outcome = "You Win!";
+                else outcome = "Draw!";
+            }
+            else{
+                if(rand == 0) outcome = "You Lost!";
+                else if(rand == 1) outcome = "You Win!";
+                else outcome = "Draw!";
+            }
+
+            if(outcome == "You Win!"){
+                playerWins++;
+                document.getElementById("playerWins").innerHTML = playerWins;
+            } 
+            else if(outcome == "You Lost!"){
+                computerWins++;
+                document.getElementById("computerWins").innerHTML = computerWins;
+            }
+            else{
+                draws++;
+                document.getElementById("draws").innerHTML = draws;
+            }
+
+            document.getElementById("demo").innerHTML = outcome;
+            document.getElementById("details").innerHTML = details;
+
+        }
+    </script>
+
+
+    <title>Tsegts's First Game</title>
+    <link rel="stylesheet" href="../css/uikit.min.css" />
+    <link rel="stylesheet" href="../css/uikit.css" />
+    <link rel="stylesheet" href="../css/additional.css" />
+    <script src="../js/uikit.min.js"></script>
+    <script src="../js/additional.js"></script>
+    <script src="../js/uikit-icons.min.js"></script>
+    <link rel="icon" alt="From Flaticon, Available at: https://www.flaticon.com/" type="image/x-icon"
+        href="../images/site_icon.png">
+    <link rel="shortcut icon" alt="From Flaticon, Available at: https://www.flaticon.com/" type="image/png"
+        href="../images/site_icon.png">
+
+    <div class=" uk-container uk-container-large uk-text-small uk-text-emphasis">
+        <h1 uk-sticky class="uk-padding uk-padding-small">
+            <a class="uk-text-bold" style="color: black" href="../">Rock Paper Scissors</a>
+        </h1>
+    
+        <h3 uk-sticky class="uk-heading-divider">By Tsegts (11 year old) and Temuulen (9 year old) </h3>
+    </div>
+</head>
+
+<body style="background-color:white;" class="uk-text-small uk-text-emphasis">
+<div class="uk-padding uk-position-center uk-text-center">
+<h1 id="demo"> Pick one </h1>
+<h2 class="uk-text-primary" id="details"> </h2>
+
+ <img onclick="playGame('0')" src="../Images/rock.png"  alt="Italian Trulli">
+ <img onclick="playGame('1')" src="../Images/paper.png" alt="Italian Trulli">
+ <img onclick="playGame('2')" src="../Images/scissors.png" width="305px" alt="asd Trulli">
+
+ <table class="uk-table uk-table-hover uk-table-divider">
+    <thead>
+        <tr>
+            <th>You won:</th>
+            <th>Computer won:</th>
+            <th>Draws</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td id="playerWins">0</td>
+            <td id="computerWins">0</td>
+            <td id="draws">0</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+</body>
+
+</html>
